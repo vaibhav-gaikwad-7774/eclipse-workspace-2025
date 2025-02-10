@@ -1,0 +1,25 @@
+package com.example.TestNGwithMaven;
+
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+// Specify the listener class that implements TestNG interfaces
+@Listeners(com.example.TestNGwithMaven.MyTestListener.class)
+public class Class1 {
+    
+    @Test
+    public void sum() {
+        int sum = 0;
+        int a = 5;
+        int b = 7;
+        sum = a + b;
+        System.out.println("Sum: " + sum);
+    }
+    
+    @Test
+    public void testToFail() {
+        System.out.println("This test case is expected to fail.");
+        Assert.assertTrue(false); // Using TestNG's Assert class
+    }
+}

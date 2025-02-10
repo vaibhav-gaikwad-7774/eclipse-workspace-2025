@@ -1,0 +1,32 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class DoubleClickExample {
+    public static void main(String[] args) {
+        // Set up WebDriver using WebDriverManager
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        
+        // Navigate to a webpage
+        driver.get("https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/");
+
+        // Locate the element
+        WebElement elementToDoubleClick = driver.findElement(By.id("doubleClickButton"));
+
+        // Instantiate Actions class
+        Actions actions = new Actions(driver);
+
+        // Perform double-click
+        actions.doubleClick(elementToDoubleClick).perform();
+		
+      	// Optionally, you can add a print statement to verify
+      	System.out.println("Double-click action performed successfully.");
+        
+      	// Close the browser
+        driver.quit();
+    }
+}

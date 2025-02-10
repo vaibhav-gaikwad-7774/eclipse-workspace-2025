@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-09-02T10:33:54 IST" name="Default suite" finished-at="2024-09-02T10:34:36 IST" duration-ms="41141">
+    <groups>
+    </groups>
+    <test started-at="2024-09-02T10:33:54 IST" name="Default test" finished-at="2024-09-02T10:34:36 IST" duration-ms="41141">
+      <class name="com.example.tests.SessionHandlingTest">
+        <test-method signature="testSessionHandling()[pri:0, instance:com.example.tests.SessionHandlingTest@76a4ebf2]" started-at="2024-09-02T10:33:54 IST" name="testSessionHandling" finished-at="2024-09-02T10:34:08 IST" duration-ms="13837" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSessionHandling -->
+        <test-method signature="testSessionHandlingGoogle()[pri:0, instance:com.example.tests.SessionHandlingTest@76a4ebf2]" started-at="2024-09-02T10:34:08 IST" name="testSessionHandlingGoogle" finished-at="2024-09-02T10:34:18 IST" duration-ms="9590" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSessionHandlingGoogle -->
+        <test-method signature="testSessionHandlingTutorialsPoint()[pri:0, instance:com.example.tests.SessionHandlingTest@76a4ebf2]" started-at="2024-09-02T10:34:18 IST" name="testSessionHandlingTutorialsPoint" finished-at="2024-09-02T10:34:35 IST" duration-ms="17635" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSessionHandlingTutorialsPoint -->
+      </class> <!-- com.example.tests.SessionHandlingTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

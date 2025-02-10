@@ -1,0 +1,161 @@
+package actions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class WebElementCommandsTest {
+
+    WebDriver driver = new ChromeDriver();
+
+    public static final String URL = "https://bonigarcia.dev/selenium-webdriver-java/web-form.html";
+
+    @Test
+    public void testWebElementCommands() {
+        // Navigate to the test page
+        driver.get(URL);
+
+        // 1. Clear Command
+        WebElement usernameField = driver.findElement(By.id("username"));
+        usernameField.clear(); // Clear any existing text
+        Assert.assertTrue(usernameField.getText().isEmpty(), "Text box should be cleared");
+
+        // 2. SendKeys Command
+        usernameField.sendKeys("testUser"); // Type text in the username field
+        Assert.assertEquals(usernameField.getAttribute("value"), "testUser", "Text entered in username field is incorrect");
+
+        // 3. Click Command
+        WebElement submitButton = driver.findElement(By.xpath("//button[normalize-space()='Submit']"));
+        submitButton.click(); // Click on the submit button
+        WebElement confirmationHeader = driver.findElement(By.cssSelector(".display-6"));
+        String text = confirmationHeader.getText();
+        Assert.assertEquals("Form submitted", text, "Form submission failed");
+
+        // 4. IsDisplayed Command
+        WebElement userAvatar = driver.findElement(By.id("userAvatar"));
+        Assert.assertTrue(userAvatar.isDisplayed(), "User avatar should be visible");
+
+        // 5. IsEnabled Command
+        WebElement submitButtonEnabled = driver.findElement(By.id("submitButton"));
+        Assert.assertTrue(submitButtonEnabled.isEnabled(), "Submit button should be enabled");
+
+        // 6. IsSelected Command
+        WebElement rememberMeCheckbox = driver.findElement(By.id("rememberMe"));
+        rememberMeCheckbox.click(); // Select the checkbox
+        Assert.assertTrue(rememberMeCheckbox.isSelected(), "Remember Me checkbox should be selected");
+
+        // 7. Submit Command
+        WebElement form = driver.findElement(By.id("loginForm"));
+        form.submit(); // Submit the login form
+        Assert.assertTrue(driver.getCurrentUrl().contains("welcome"), "After submitting the form, we should be redirected to the welcome page");
+
+        // 8. GetText Command
+        WebElement welcomeMessage = driver.findElement(By.id("welcomeMessage"));
+        Assert.assertEquals(welcomeMessage.getText(), "Welcome, testUser!", "Welcome message is incorrect");
+
+        // 9. GetTagName Command
+        String tagName = submitButton.getTagName();
+        Assert.assertEquals(tagName, "button", "The tag name of the submit button should be 'button'");
+
+        // 10. GetCssValue Command
+        String bgColor = submitButton.getCssValue("background-color");
+        Assert.assertEquals(bgColor, "rgb(0, 123, 255)", "Submit button background color should be blue");
+
+        // 11. GetSize Command
+        Dimension size = submitButton.getSize();
+        Assert.assertTrue(size.width > 0 && size.height > 0, "Button size should be greater than 0");
+
+        // 12. GetLocation Command
+        Point location = submitButton.getLocation();
+        System.out.println("Submit button is located at X: " + location.x + " and Y: " + location.y);
+        Assert.assertTrue(location.x >= 0 && location.y >= 0, "Button should have valid screen coordinates");
+
+        // Clean up
+        driver.quit();
+    }
+
+    // Uncomment and modify these methods for further interactions on checkboxes, radio buttons, and dropdowns.
+    
+    @Test
+    public void testClickLink() {
+        driver.get(URL);
+
+        WebElement returnToIndex = driver.findElement(By.linkText("Return to index"));
+        returnToIndex.click();
+
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertTrue(currentUrl.contains("index.html"));
+    }
+
+    @Test
+    public void testClickCheckBoxes() {
+        driver.get(URL);
+
+        WebElement checkbox1 = driver.findElement(By.cssSelector("[type=checkbox]:checked"));
+        Assert.assertEquals("my-check-1", checkbox1.getDomAttribute("id"));
+        Assert.assertTrue(checkbox1.isSelected());
+
+        WebElement checkbox2 = driver.findElement(By.cssSelector("[type=checkbox]:not(:checked)"));
+        Assert.assertEquals("my-check-2", checkbox2.getDomAttribute("id"));
+        Assert.assertFalse(checkbox2.isSelected());
+
+        checkbox1.click();
+        Assert.assertFalse(checkbox1.isSelected());
+
+        checkbox2.click();
+        Assert.assertTrue(checkbox2.isSelected());
+    }
+
+    @Test
+    public void testClickRadioButtons() {
+        driver.get(URL);
+
+        WebElement radio1 = driver.findElement(By.xpath("//input[@type='radio' and @checked]"));
+        Assert.assertEquals("my-radio-1", radio1.getDomAttribute("id"));
+        Assert.assertTrue(radio1.isSelected());
+
+        WebElement radio2 = driver.findElement(By.xpath("//input[@type='radio' and not(@checked)]"));
+        Assert.assertEquals("my-radio-2", radio2.getDomAttribute("id"));
+        Assert.assertFalse(radio2.isSelected());
+
+        radio2.click();
+        Assert.assertFalse(radio1.isSelected());
+        Assert.assertTrue(radio2.isSelected());
+    }
+
+    @Test
+    public void testDropDowns() {
+        driver.get(URL);
+        WebElement listBox = driver.findElement(By.name("my-select"));
+        Select select = new Select(listBox);
+
+        // Print all option text values
+        select.getOptions().forEach(option -> System.out.println(option.getText()));
+
+        // Select one option based on visible text
+        String optionLabel = "Three";
+        select.selectByVisibleText(optionLabel);
+
+        Assert.assertEquals(optionLabel, select.getFirstSelectedOption().getText());
+    }
+
+    @Test
+    public void testDataList() {
+        driver.get(URL);
+
+        WebElement dataList = driver.findElement(By.name("my-datalist"));
+        dataList.click();
+
+        WebElement option = driver.findElement(By.xpath("//datalist/option[2]"));
+        String optionValue = option.getDomAttribute("value");
+        dataList.sendKeys(optionValue);
+
+        Assert.assertEquals("New York", optionValue);
+    }
+}

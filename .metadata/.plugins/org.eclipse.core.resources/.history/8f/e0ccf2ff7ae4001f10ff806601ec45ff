@@ -1,0 +1,125 @@
+package exceptions;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.time.Duration;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+import actions.BaseTest;
+
+public class ExceptionsTestHndling extends BaseTest {
+
+    @Test
+    public void testNoSuchElementException() {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
+        try {
+            WebElement textInput = driver.findElement(By.id("my-text-id"));
+            textInput.sendKeys("Hello World");
+        } catch (NoSuchElementException e) {
+            System.out.println("Element not found: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testNoSuchElementException2() {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement landscape = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img#landscape")));
+        String actualSrc = landscape.getDomAttribute("src");
+        assertTrue(actualSrc.contains("landscape"), "The source does not contain 'landscape'");
+    }
+
+    @Test
+    public void testElementNotInteractableException() {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
+        WebElement hiddenElement = driver.findElement(By.cssSelector("input[type=hidden]"));
+        try {
+            hiddenElement.click();
+        } catch (Exception e) {
+            System.out.println("Element is not interactable: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testNoAlertPresentException() {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html");
+        driver.findElement(By.id("my-alert")).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        try {
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            assertEquals(alert.getText(), "Hello world!", "Alert text does not match");
+            alert.accept();
+        } catch (Exception e) {
+            System.out.println("No alert present: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testNoSuchSessionException() {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/");
+        driver.quit();
+        try {
+            WebElement textInput = driver.findElement(By.id("my-text-id"));
+            textInput.sendKeys("Hello World");
+        } catch (Exception e) {
+            System.out.println("No session available: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testInvalidSelectorException() {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
+        try {
+            WebElement textInput = driver.findElement(By.xpath("//*[@id='my-text-id']"));
+            textInput.sendKeys("Hello World");
+        } catch (Exception e) {
+            System.out.println("Invalid selector: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testStaleElementReferenceException() {
+        // Navigate to Google's homepage
+        driver.get("https://www.google.com");
+
+        // Locate the search box element
+        WebElement searchBox = driver.findElement(By.name("q"));
+
+        // Try to interact with the search box
+        try {
+            searchBox.sendKeys("Selenium WebDriver");
+            System.out.println("First interaction with search box successful.");
+
+            // Refresh the page, causing the element to become stale
+            driver.navigate().refresh();
+
+            // Try to interact with the same element again (which will now be stale)
+            searchBox.sendKeys("Handling Stale Element");
+            
+        } catch (StaleElementReferenceException e) {
+            System.out.println("Caught StaleElementReferenceException. Re-locating the element...");
+
+            // Re-locate the search box element after the page refresh
+            searchBox = driver.findElement(By.name("q"));
+            searchBox.sendKeys("Handling Stale Element after refresh");
+
+            System.out.println("Successfully interacted with the search box after re-locating the element.");
+        }
+
+        // Verify that the query was entered in the search box (can be checked using JavaScript or assertion)
+        assertTrue(driver.getTitle().contains("Selenium WebDriver"), "Google search was not initiated properly.");
+
+        // Close the browser after the test
+        driver.quit();
+    }
+}
+}

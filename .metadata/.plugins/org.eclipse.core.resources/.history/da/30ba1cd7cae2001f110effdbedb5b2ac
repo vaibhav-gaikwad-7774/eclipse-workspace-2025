@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test Suite">
+    <test name="Test 1">
+        <classes>
+            <class name="com.example.tests.AllAnnotationsTestGFG"/>
+            <class name="com.example.tests.PriorityExampleTest"/>
+        </classes>
+    </test>
+</suite>

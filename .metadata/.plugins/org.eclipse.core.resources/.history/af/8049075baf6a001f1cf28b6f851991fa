@@ -1,0 +1,59 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class FrameSwitchingTest111 {
+    public static void main(String[] args) {
+        // Setup WebDriverManager to manage the ChromeDriver binaries
+        WebDriverManager.chromedriver().setup();
+
+        // Initialize the ChromeDriver
+        WebDriver driver = new ChromeDriver();
+
+        try {
+            // Open the webpage with iframes
+            driver.get("URL_OF_THE_PAGE_WITH_IFRAMES");
+
+            // Switch to the first iframe
+            driver.switchTo().frame("FIRST_IFRAME_ID_OR_NAME");
+
+            // Perform actions within the first iframe
+            WebElement frame1Element = driver.findElement(By.tagName("TAG_TO_LOCATE_ELEMENT"));
+            System.out.println("Text inside the first iframe: " + frame1Element.getText());
+
+            // Switch to the nested iframe within the first iframe
+            driver.switchTo().frame("NESTED_IFRAME_ID_OR_NAME"); // or use index if needed
+
+            // Perform actions within the nested iframe
+            WebElement nestedFrameElement = driver.findElement(By.tagName("TAG_TO_LOCATE_ELEMENT"));
+            System.out.println("Text inside the nested iframe: " + nestedFrameElement.getText());
+
+            // Switch back to the first iframe
+            driver.switchTo().parentFrame(); // This switches back to the parent frame (first iframe)
+
+            // Switch back to the default content
+            driver.switchTo().defaultContent();
+
+            // Switch to the second iframe
+            driver.switchTo().frame("SECOND_IFRAME_ID_OR_NAME");
+
+            // Perform actions within the second iframe
+            WebElement frame2Element = driver.findElement(By.tagName("TAG_TO_LOCATE_ELEMENT"));
+            System.out.println("Text inside the second iframe: " + frame2Element.getText());
+
+            // Switch back to the default content
+            driver.switchTo().defaultContent();
+
+            // Perform actions in the default content
+            WebElement defaultContentElement = driver.findElement(By.cssSelector("CSS_SELECTOR_FOR_ELEMENT"));
+            System.out.println("Text in the default content: " + defaultContentElement.getText());
+
+        } finally {
+            // Close the browser
+            driver.quit();
+        }
+    }
+}

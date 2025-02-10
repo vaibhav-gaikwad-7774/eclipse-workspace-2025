@@ -1,0 +1,31 @@
+package com.screenshot.test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+@Listeners(ScreenshotListener.class)
+public class TestClass {
+
+    private WebDriver driver;
+
+    @BeforeClass
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://example.com");
+    }
+
+    @Test
+    public void sampleTest() {
+        Assert.fail("Test failed intentionally");
+    }
+
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+}

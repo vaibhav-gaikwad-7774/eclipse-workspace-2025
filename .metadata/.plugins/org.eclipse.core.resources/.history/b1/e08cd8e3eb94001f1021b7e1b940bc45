@@ -1,0 +1,11 @@
+package com.example.TestNGwithMAven;
+
+public class ExecutionListener {
+	public void onExecutionStart() {
+        System.out.println("TestNG is starting the execution");
+    }
+
+    public void onExecutionFinish() {
+        System.out.println("TestNG has finished the execution");
+    }
+}

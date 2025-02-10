@@ -1,0 +1,35 @@
+package com.example.TestNGwithMAven;
+
+import org.testng.ITestResult;
+
+public class TestListener {
+	@Override
+    public void onTestStart(ITestResult result) {
+        System.out.println("Test " + result.getName() + " started");
+    }
+
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        System.out.println("Test " + result.getName() + " succeeded");
+    }
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+        System.out.println("Test " + result.getName() + " failed");
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        System.out.println("Test " + result.getName() + " skipped");
+    }
+
+    @Override
+    public void onStart(ITestContext context) {
+        System.out.println("Test context " + context.getName() + " started");
+    }
+
+    @Override
+    public void onFinish(ITestContext context) {
+        System.out.println("Test context " + context.getName() + " finished");
+    }
+}

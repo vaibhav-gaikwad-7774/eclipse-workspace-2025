@@ -1,0 +1,14 @@
+package com.example.TestNGwithMAven;
+
+import org.testng.IAnnotationTransformer;
+import org.testng.annotations.ITestAnnotation;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+
+public class AnnotationTransformer implements IAnnotationTransformer {
+    @Override
+    public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
+        // Modify the annotation as needed
+        annotation.setEnabled(true); // Enabling the test method dynamically
+    }
+}

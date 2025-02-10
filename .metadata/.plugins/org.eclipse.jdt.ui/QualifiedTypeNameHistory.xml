@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Vector"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="groovy.lang.Category"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.bidi.module.Browser"/>
+    <fullyQualifiedTypeName name="java.io.ObjectInputFilter.Status"/>
+    <fullyQualifiedTypeName name="io.opentelemetry.api.logs.Logger"/>
+    <fullyQualifiedTypeName name="groovyjarjarantlr4.v4.runtime.misc.LogManager"/>
+    <fullyQualifiedTypeName name="io.learn.pages.LoginPage"/>
+    <fullyQualifiedTypeName name="java.util.Properties"/>
+    <fullyQualifiedTypeName name="java.time.Duration"/>
+    <fullyQualifiedTypeName name="io.learn.utils.Browser"/>
+    <fullyQualifiedTypeName name="io.learn.utils.WebDriverFactory"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
+    <fullyQualifiedTypeName name="com.beust.jcommander.Parameters"/>
+    <fullyQualifiedTypeName name="org.testng.Assert"/>
+    <fullyQualifiedTypeName name="java.awt.Point"/>
+</qualifiedTypeNameHistroy>
