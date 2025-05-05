@@ -49,12 +49,14 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.geeks"/>
 			<item value="demo_maven"/>
 			<item value="com.restassured.demo"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="testdriven"/>
 			<item value="maven"/>
 			<item value="rest-assured-demo"/>
 		</list>
