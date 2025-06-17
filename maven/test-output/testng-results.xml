@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-05-30T17:28:29 IST" name="Default suite" finished-at="2025-05-30T17:28:29 IST" duration-ms="581">
+    <groups>
+    </groups>
+    <test started-at="2025-05-30T17:28:29 IST" name="Default test" finished-at="2025-05-30T17:28:29 IST" duration-ms="581">
+      <class name="driver.DriverScript">
+        <test-method is-config="true" signature="setup()[pri:0, instance:driver.DriverScript@54d9d12d]" started-at="2025-05-30T17:28:24 IST" name="setup" finished-at="2025-05-30T17:28:29 IST" duration-ms="5081" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="executeTests()[pri:0, instance:driver.DriverScript@54d9d12d]" started-at="2025-05-30T17:28:29 IST" name="executeTests" finished-at="2025-05-30T17:28:29 IST" duration-ms="542" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeTests -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:driver.DriverScript@54d9d12d]" started-at="2025-05-30T17:28:29 IST" name="tearDown" finished-at="2025-05-30T17:28:30 IST" duration-ms="460" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- driver.DriverScript -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -50,12 +50,15 @@
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
 			<item value="com.geeks"/>
+			<item value="Com.Geeks"/>
 			<item value="demo_maven"/>
 			<item value="com.restassured.demo"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="GeeksAutomationTestingProjects"/>
+			<item value="SeleniumLearningNew"/>
 			<item value="testdriven"/>
 			<item value="maven"/>
 			<item value="rest-assured-demo"/>
@@ -78,6 +81,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\gfg329\Project test Automation\EcommerceWebsiteAutomation"/>
 			<item value="D:\gfg329\Project test Automation\TAF_API_RESTAssured"/>
 			<item value="D:\gfg329\Project test Automation\Learn_TestAutomationFramework"/>
 			<item value="D:\gfg329\Junit-01"/>
