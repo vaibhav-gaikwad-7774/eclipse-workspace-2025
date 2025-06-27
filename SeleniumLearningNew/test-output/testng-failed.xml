@@ -1,28 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="tests" name="Failed suite [ParallelGoogleTestSuite]" guice-stage="DEVELOPMENT">
-  <test thread-count="2" parallel="tests" name="FirefoxTest(failed)">
-    <parameter name="browser" value="firefox"/>
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.example.ParallelGoogleTest">
+      <class name="ActionsTest.CrossBrowserTest">
         <methods>
-          <include name="setUp"/>
-          <include name="testGoogleSearchPage"/>
           <include name="tearDown"/>
+          <include name="testLoginFunctionality" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- com.example.ParallelGoogleTest -->
+      </class> <!-- ActionsTest.CrossBrowserTest -->
     </classes>
-  </test> <!-- FirefoxTest(failed) -->
-  <test thread-count="2" parallel="tests" name="ChromeTest(failed)">
-    <parameter name="browser" value="chrome"/>
-    <classes>
-      <class name="com.example.ParallelGoogleTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="testGoogleSearchPage"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.example.ParallelGoogleTest -->
-    </classes>
-  </test> <!-- ChromeTest(failed) -->
-</suite> <!-- Failed suite [ParallelGoogleTestSuite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

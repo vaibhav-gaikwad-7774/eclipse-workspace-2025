@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-02T15:54:12 IST" name="Default suite" finished-at="2025-04-02T15:54:23 IST" duration-ms="10991">
+  <suite started-at="2025-06-17T11:39:26 IST" name="Default suite" finished-at="2025-06-17T11:39:31 IST" duration-ms="5695">
     <groups>
     </groups>
-    <test started-at="2025-04-02T15:54:12 IST" name="Default test" finished-at="2025-04-02T15:54:23 IST" duration-ms="10991">
+    <test started-at="2025-06-17T11:39:26 IST" name="Default test" finished-at="2025-06-17T11:39:31 IST" duration-ms="5695">
       <class name="com.example.automation.SampleTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.example.automation.SampleTest@2f4948e4]" started-at="2025-04-02T15:54:12 IST" name="setup" finished-at="2025-04-02T15:54:20 IST" duration-ms="8199" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.example.automation.SampleTest@229f66ed]" started-at="2025-06-17T11:39:26 IST" name="setup" finished-at="2025-06-17T11:39:30 IST" duration-ms="3847" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="openGoogle()[pri:0, instance:com.example.automation.SampleTest@2f4948e4]" started-at="2025-04-02T15:54:20 IST" name="openGoogle" finished-at="2025-04-02T15:54:22 IST" duration-ms="2007" status="PASS">
+        <test-method signature="openGoogle()[pri:0, instance:com.example.automation.SampleTest@229f66ed]" started-at="2025-06-17T11:39:30 IST" name="openGoogle" finished-at="2025-06-17T11:39:31 IST" duration-ms="1570" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openGoogle -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.example.automation.SampleTest@2f4948e4]" started-at="2025-04-02T15:54:22 IST" name="teardown" finished-at="2025-04-02T15:54:23 IST" duration-ms="531" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.example.automation.SampleTest@229f66ed]" started-at="2025-06-17T11:39:31 IST" name="teardown" finished-at="2025-06-17T11:39:31 IST" duration-ms="193" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

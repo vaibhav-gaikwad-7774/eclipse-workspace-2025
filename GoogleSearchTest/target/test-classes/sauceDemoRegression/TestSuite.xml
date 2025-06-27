@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Saucedemo Regression Tests">
+    <test name="Saucedemo Login Tests">
+        <classes>
+            <class name="sauceDemoRegression.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Saucedemo Cart Tests">
+        <classes>
+            <class name="sauceDemoRegression.AddToCartTest"/>
+        </classes>
+    </test>
+
+    <test name="Saucedemo Logout Test">
+        <classes>
+            <class name="sauceDemoRegression.LogoutTest"/>
+        </classes>
+    </test>
+</suite>

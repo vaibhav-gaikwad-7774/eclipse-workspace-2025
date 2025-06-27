@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\GFG0329\eclipse-workspace\SeleniumChromeAutomation\pom.xml"/>
+			<item value="C:\Users\GFG0329\eclipse-workspace\selenium-first-testcase\pom.xml"/>
 			<item value="C:\Users\GFG0329\eclipse-workspace\SeleniumChromeAutomation\src\main\java\actions\BaseTest.java"/>
 			<item value="C:\Users\GFG0329\eclipse-workspace\SeleniumChromeAutomation\src\main\java\browser_specific\headless\HeadlessEdgeTest.java"/>
 			<item value="C:\Users\GFG0329\eclipse-workspace\GeeksForGeeks\src"/>
@@ -50,6 +52,8 @@
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
 			<item value="com.geeks"/>
+			<item value="com.example"/>
+			<item value="Com.geeks"/>
 			<item value="Com.Geeks"/>
 			<item value="demo_maven"/>
 			<item value="com.restassured.demo"/>
@@ -57,6 +61,15 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="MavenProfilesEx"/>
+			<item value="Parallel-Testing"/>
+			<item value="selenium-name-locator"/>
+			<item value="selenium-first-testcase"/>
+			<item value="maven-profile-example"/>
+			<item value="selenium-test"/>
+			<item value="selenium-first-test"/>
+			<item value="testng-reports-demo"/>
+			<item value="Software-Testing-Edureka"/>
 			<item value="GeeksAutomationTestingProjects"/>
 			<item value="SeleniumLearningNew"/>
 			<item value="testdriven"/>
